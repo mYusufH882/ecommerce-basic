@@ -36,7 +36,7 @@
             <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="#"> Profil Saya </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="#"> Logout </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#"> Sign Out </a></li>
                 </ul>
             </div>
         </li>
