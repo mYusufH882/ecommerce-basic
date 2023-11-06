@@ -174,6 +174,9 @@
                 </div>
             </div>
         </div>
+        <!-- content-wrapper ends -->
+        @include('partials.footer')
+        <!-- partial -->
     </div>
 </div>
 @endsection
