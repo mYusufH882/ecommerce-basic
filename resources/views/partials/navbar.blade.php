@@ -18,7 +18,8 @@
     <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
             <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-                <h1 class="welcome-text">Selamat Datang, <span class="text-black fw-bold">John Doe</span></h1>
+                <h1 class="welcome-text">Selamat Datang, <span
+                        class="text-black fw-bold">{{ucfirst(auth()->user()->name)}}</span></h1>
                 <h3 class="welcome-sub-text">Dashboard untuk mengelola data anda. </h3>
             </li>
         </ul>
@@ -31,8 +32,8 @@
                     <div class="dropdown-header text-center">
                         <img class="img-md rounded-circle"
                             src="{{asset('assets/star-admin2/template/images/faces/face8.jpg')}}" alt="Profile image">
-                        <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                        <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+                        <p class="mb-1 mt-3 font-weight-semibold">{{ucfirst(auth()->user()->name)}}</p>
+                        <p class="fw-light text-muted mb-0">{{auth()->user()->email}}</p>
                     </div>
                     <a class="dropdown-item"><i
                             class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> Profile Saya</a>
