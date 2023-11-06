@@ -1,7 +1,6 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 
 @section('content')
-@include('partials.navbar')
 <!-- partial -->
 <div class="container-fluid page-body-wrapper">
     @include('partials.sidebar')
@@ -20,14 +19,6 @@
                                     <div class="col-sm-12">
                                         <div
                                             class="statistics-details d-flex align-items-center justify-content-between">
-                                            <div>
-                                                <p class="statistics-title">Produk</p>
-                                                <h3 class="rate-percentage">32.53%</h3>
-                                            </div>
-                                            <div>
-                                                <p class="statistics-title">Kategori</p>
-                                                <h3 class="rate-percentage">7,682</h3>
-                                            </div>
                                             <div>
                                                 <p class="statistics-title">Transaksi</p>
                                                 <h3 class="rate-percentage">68.8</h3>
@@ -334,20 +325,10 @@
             </div>
         </div>
         <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a
-                        href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from
-                    BootstrapDash.</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © {{date('Y')}}. All
-                    rights
-                    reserved.</span>
-            </div>
-        </footer>
+        @include('partials.footer')
         <!-- partial -->
     </div>
     <!-- main-panel ends -->
 </div>
-<!-- page-body-wrapper ends --
+<!-- page-body-wrapper ends -->
 @endsection
