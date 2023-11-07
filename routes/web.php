@@ -20,12 +20,11 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::middleware('guest')->group(function () {
-    Route::get('/', [LandingPageController::class, 'index'])->name('landing_page');
-});
+Route::get('/', [LandingPageController::class, 'index'])->name('landing_page');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+    Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
     Route::get('/transaksi', [TransaksiController::class, 'index']);
 
     Route::middleware('can:isAdmin')->group(function () {

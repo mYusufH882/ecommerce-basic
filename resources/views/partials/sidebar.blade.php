@@ -37,7 +37,7 @@
             </a>
             <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="#"> Profil Saya </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/profile"> Profil Saya </a></li>
                 </ul>
             </div>
         </li>
