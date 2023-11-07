@@ -63,8 +63,7 @@
                                     </td>
                                     @endcan
                                 </tr>
-                                @empty
-                                <tr>
+                                <<<<<<< HEAD @empty <tr>
                                     @can('isAdmin')
                                     <td colspan="7">
                                         <p class="text-center">Maaf data belum tersedia</p>
@@ -74,8 +73,11 @@
                                         <p class="text-center">Maaf data belum tersedia</p>
                                     </td>
                                     @endcan
-                                </tr>
-                                @endforelse
+                                    </tr>
+                                    @endforelse
+                                    =======
+                                    @endforeach
+                                    >>>>>>> 20b074c (Update CRUD produk & kategori)
                             </tbody>
                         </table>
                     </div>
