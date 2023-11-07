@@ -39,7 +39,17 @@
     <script src="{{asset('assets/star-admin2/template/vendors/progressbar.js/progressbar.min.js')}}"></script>
 
     <div class="container-scroller">
-        @yield('content')
+        @include('partials.navbar')
+        <div class="container-fluid page-body-wrapper">
+            @include('partials.sidebar')
+            <div class="main-panel">
+                @yield('content')
+
+                <!-- content-wrapper ends -->
+                @include('partials.footer')
+                <!-- partial -->
+            </div>
+        </div>
     </div>
     <!-- container-scroller -->
 

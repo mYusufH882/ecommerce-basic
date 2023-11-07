@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ProdukController;
@@ -23,13 +22,11 @@ Auth::routes();
 Route::get('/', [LandingPageController::class, 'index'])->name('landing_page');
 
 Route::middleware(['auth'])->group(function () {
-    //Admin
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
-    Route::resource('/produk', ProdukController::class);
-    Route::resource('/kategori', KategoriController::class);
-    Route::resource('/transaksi', TransaksiController::class);
-
-    //User
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::middleware(['auth', 'can:isAdmin'])->group(function () {
+        Route::resource('/produk', ProdukController::class);
+        Route::resource('/kategori', KategoriController::class);
+        Route::get('/transaksi', [TransaksiController::class, 'index']);
+    });
 });

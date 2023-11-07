@@ -1,27 +1,27 @@
 <!-- partial:partials/_sidebar.html -->
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
-        <li class="nav-item">
+        <li class="nav-item {{Route::is('/') ? 'active' : ''}}">
             <a class="nav-link" href="/dashboard">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
         <li class="nav-item nav-category">menu</li>
-        <li class="nav-item">
-            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+        <li class="nav-item {{Route::is('/produk*') ? 'active' : ''}}">
+            <a class="nav-link" href="/produk">
                 <i class="menu-icon mdi mdi-archive"></i>
                 <span class="menu-title">Produk</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+        <li class="nav-item {{Route::is('/kategori') ? 'active' : ''}}">
+            <a class="nav-link" href="/kategori">
                 <i class="menu-icon mdi mdi-apps"></i>
                 <span class="menu-title">Kategori</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+        <li class="nav-item {{Route::is('/transaksi') ? 'active' : ''}}">
+            <a class="nav-link" href="/transaksi">
                 <i class="menu-icon mdi mdi-file-document"></i>
                 <span class="menu-title">Transaksi</span>
             </a>
