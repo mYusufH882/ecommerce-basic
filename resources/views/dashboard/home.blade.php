@@ -12,6 +12,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="statistics-details d-flex align-items-center justify-content-between">
+                                    @can('isAdmin')
                                     <div>
                                         <p class="statistics-title">Produk</p>
                                         <h3 class="rate-percentage">32.53%</h3>
@@ -20,6 +21,7 @@
                                         <p class="statistics-title">Kategori</p>
                                         <h3 class="rate-percentage">7,682</h3>
                                     </div>
+                                    @endcan
                                     <div>
                                         <p class="statistics-title">Transaksi</p>
                                         <h3 class="rate-percentage">68.8</h3>
@@ -47,9 +49,10 @@
                                                             memiliki daftar transaksi n baru.</p>
                                                     </div>
                                                     <div>
-                                                        <button class="btn btn-primary btn-lg text-white mb-0 me-0"
-                                                            type="button"><i class="mdi mdi-eye"></i>Lihat
-                                                            Transaksi</button>
+                                                        <a href="/transaksi"
+                                                            class="btn btn-primary btn-lg text-white mb-0 me-0"><i
+                                                                class="mdi mdi-eye"></i>Lihat
+                                                            Transaksi</a>
                                                     </div>
                                                 </div>
                                                 <div class="table-responsive  mt-1">
