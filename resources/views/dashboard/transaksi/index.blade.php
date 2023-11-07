@@ -23,7 +23,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($transaksi as $item)
+                                @forelse ($transaksi as $item)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$item->invoice}}</td>
@@ -52,7 +52,19 @@
                                     </td>
                                     @endcan
                                 </tr>
-                                @endforeach
+                                @empty
+                                <tr>
+                                    @can('isAdmin')
+                                    <td colspan="7">
+                                        <p class="text-center">Maaf data belum tersedia</p>
+                                    </td>
+                                    @else
+                                    <td colspan="6">
+                                        <p class="text-center">Maaf data belum tersedia</p>
+                                    </td>
+                                    @endcan
+                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
