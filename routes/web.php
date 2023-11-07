@@ -19,14 +19,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/', [LandingPageController::class, 'index'])->name('landing_page');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/', [LandingPageController::class, 'index'])->name('landing_page');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+    Route::get('/transaksi', [TransaksiController::class, 'index']);
 
-    Route::middleware(['auth', 'can:isAdmin'])->group(function () {
+    Route::middleware('can:isAdmin')->group(function () {
         Route::resource('/produk', ProdukController::class);
         Route::resource('/kategori', KategoriController::class);
-        Route::get('/transaksi', [TransaksiController::class, 'index']);
     });
 });

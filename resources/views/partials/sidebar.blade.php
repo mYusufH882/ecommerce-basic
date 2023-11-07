@@ -8,18 +8,20 @@
             </a>
         </li>
         <li class="nav-item nav-category">menu</li>
-        <li class="nav-item {{Route::is('/produk*') ? 'active' : ''}}">
+        @can('isAdmin')
+        <li class="nav-item {{Route::is('produk.*') ? 'active' : ''}}">
             <a class="nav-link" href="/produk">
                 <i class="menu-icon mdi mdi-archive"></i>
                 <span class="menu-title">Produk</span>
             </a>
         </li>
-        <li class="nav-item {{Route::is('/kategori') ? 'active' : ''}}">
+        <li class="nav-item {{Route::is('kategori.*') ? 'active' : ''}}">
             <a class="nav-link" href="/kategori">
                 <i class="menu-icon mdi mdi-apps"></i>
                 <span class="menu-title">Kategori</span>
             </a>
         </li>
+        @endcan
         <li class="nav-item {{Route::is('/transaksi') ? 'active' : ''}}">
             <a class="nav-link" href="/transaksi">
                 <i class="menu-icon mdi mdi-file-document"></i>
