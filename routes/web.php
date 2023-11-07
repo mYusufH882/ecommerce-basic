@@ -29,6 +29,7 @@ Route::get('/about', [LandingPageController::class, 'about'])->name('about');
 
 Route::middleware(['auth'])->group(function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
     Route::get('/transaksi', [TransaksiController::class, 'index']);
@@ -55,4 +56,13 @@ Route::middleware(['auth'])->group(function () {
     //User
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 >>>>>>> 51c8063 (Update laravel/ui only 1 user can login)
+=======
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+    Route::middleware(['auth', 'can:isAdmin'])->group(function () {
+        Route::resource('/produk', ProdukController::class);
+        Route::resource('/kategori', KategoriController::class);
+        Route::get('/transaksi', [TransaksiController::class, 'index']);
+    });
+>>>>>>> 30d693e (Update dashboard)
 });
