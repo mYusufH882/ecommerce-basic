@@ -25,7 +25,7 @@
         </ul>
         <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown d-none d-lg-block user-dropdown">
-                <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link" id="UserDropdown" href="/dashboard" data-bs-toggle="dropdown" aria-expanded="false">
                     <img class="img-xs rounded-circle"
                         src="{{asset('assets/star-admin2/template/images/faces/face8.jpg')}}" alt="Profile image"> </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
@@ -35,7 +35,7 @@
                         <p class="mb-1 mt-3 font-weight-semibold">{{ucfirst(auth()->user()->name)}}</p>
                         <p class="fw-light text-muted mb-0">{{auth()->user()->email}}</p>
                     </div>
-                    <a class="dropdown-item"><i
+                    <a href="/profile" class="dropdown-item"><i
                             class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> Profile Saya</a>
                     <a href="{{route('logout')}}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
