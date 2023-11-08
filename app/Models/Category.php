@@ -12,4 +12,9 @@ class Category extends Model
     protected $fillable = [
         "nama_kategori"
     ];
+
+    public static function jumlahKategori()
+    {
+        return Category::get()->count();
+    }
 }

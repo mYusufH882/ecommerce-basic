@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
@@ -26,6 +27,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
     Route::get('/transaksi', [TransaksiController::class, 'index']);
+
+    Route::middleware('can:isUser')->group(function () {
+        Route::get('/belanja/{id}', [BelanjaController::class, 'show'])->name('belanja');
+        Route::post('/belanja', [BelanjaController::class, 'beli'])->name('belanja-sekarang');
+        Route::get('/konfirmasi/{id}', [BelanjaController::class, 'view_pembayaran'])->name('pembayaran');
+        Route::post('/konfirmasi', [BelanjaController::class, 'konfirmasi'])->name('konfirmasi');
+    });
 
     Route::middleware('can:isAdmin')->group(function () {
         Route::resource('/produk', ProdukController::class);

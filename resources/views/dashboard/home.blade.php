@@ -15,16 +15,16 @@
                                     @can('isAdmin')
                                     <div>
                                         <p class="statistics-title">Produk</p>
-                                        <h3 class="rate-percentage">32.53%</h3>
+                                        <h3 class="rate-percentage">{{$data['jproduk']}}</h3>
                                     </div>
                                     <div>
                                         <p class="statistics-title">Kategori</p>
-                                        <h3 class="rate-percentage">7,682</h3>
+                                        <h3 class="rate-percentage">{{$data['jkategori']}}</h3>
                                     </div>
                                     @endcan
                                     <div>
                                         <p class="statistics-title">Transaksi</p>
-                                        <h3 class="rate-percentage">68.8</h3>
+                                        <h3 class="rate-percentage">{{$data['jtransaksi']}}</h3>
                                     </div>
                                     <div></div>
                                     <div></div>
@@ -46,7 +46,7 @@
                                                         <h4 class="card-title card-title-dash">Daftar Transaksi
                                                         </h4>
                                                         <p class="card-subtitle card-subtitle-dash">Kamu
-                                                            memiliki daftar transaksi n baru.</p>
+                                                            memiliki daftar transaksi {{$data['jtransaksi']}} baru.</p>
                                                     </div>
                                                     <div>
                                                         <a href="/transaksi"
@@ -59,32 +59,16 @@
                                                     <table class="table select-table">
                                                         <thead>
                                                             <tr>
-                                                                <th>
-                                                                    <div class="form-check form-check-flat mt-0">
-                                                                        <label class="form-check-label">
-                                                                            <input type="checkbox"
-                                                                                class="form-check-input"
-                                                                                aria-checked="false"><i
-                                                                                class="input-helper"></i></label>
-                                                                    </div>
-                                                                </th>
-                                                                <th>Customer</th>
-                                                                <th>Company</th>
-                                                                <th>Progress</th>
+                                                                <th>No.</th>
+                                                                <th>Invoice</th>
+                                                                <th>Nama Produk</th>
+                                                                <th>Harga & Qty</th>
+                                                                <th>Total Harga</th>
                                                                 <th>Status</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="form-check form-check-flat mt-0">
-                                                                        <label class="form-check-label">
-                                                                            <input type="checkbox"
-                                                                                class="form-check-input"
-                                                                                aria-checked="false"><i
-                                                                                class="input-helper"></i></label>
-                                                                    </div>
-                                                                </td>
+                                                            {{-- <tr>
                                                                 <td>
                                                                     <div class="d-flex ">
                                                                         <img src="{{asset('assets/star-admin2/template/images/faces/face1.jpg')}}"
@@ -115,182 +99,37 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="badge badge-opacity-warning">In
-                                                                        progress</div>
                                                                 </td>
-                                                            </tr>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="badge badge-opacity-warning">In progress
+                                                                    </div>
+                                                                </td>
+                                                            </tr> --}}
+                                                            @forelse ($transaksi as $item)
                                                             <tr>
+                                                                <td>{{$loop->iteration}}</td>
+                                                                <td>{{$item->invoice}}</td>
                                                                 <td>
-                                                                    <div class="form-check form-check-flat mt-0">
-                                                                        <label class="form-check-label">
-                                                                            <input type="checkbox"
-                                                                                class="form-check-input"
-                                                                                aria-checked="false"><i
-                                                                                class="input-helper"></i></label>
-                                                                    </div>
+                                                                    <b>Rp.</b> {{number_format($item->harga_produk, '2',
+                                                                    ',', '.')}} <br><br>
+                                                                    <b>Qty</b> {{$item->qty_produk}}
+                                                                </td>
+                                                                <td>{{number_format($item->total_amount, 2, ',', '.')}}
                                                                 </td>
                                                                 <td>
-                                                                    <div class="d-flex">
-                                                                        <img src="images/faces/face2.jpg" alt="">
-                                                                        <div>
-                                                                            <h6>Laura Brooks</h6>
-                                                                            <p>Head admin</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h6>Company name 1</h6>
-                                                                    <p>company type</p>
-                                                                </td>
-                                                                <td>
-                                                                    <div>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                                            <p class="text-success">65%</p>
-                                                                            <p>85/162</p>
-                                                                        </div>
-                                                                        <div class="progress progress-md">
-                                                                            <div class="progress-bar bg-success"
-                                                                                role="progressbar" style="width: 65%"
-                                                                                aria-valuenow="65" aria-valuemin="0"
-                                                                                aria-valuemax="100"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="badge badge-opacity-warning">In
-                                                                        progress</div>
+                                                                    <span class="badge badge-opacity-warning">
+                                                                        {{$item->status}}
+                                                                    </span>
                                                                 </td>
                                                             </tr>
+                                                            @empty
                                                             <tr>
-                                                                <td>
-                                                                    <div class="form-check form-check-flat mt-0">
-                                                                        <label class="form-check-label">
-                                                                            <input type="checkbox"
-                                                                                class="form-check-input"
-                                                                                aria-checked="false"><i
-                                                                                class="input-helper"></i></label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex">
-                                                                        <img src="images/faces/face3.jpg" alt="">
-                                                                        <div>
-                                                                            <h6>Wayne Murphy</h6>
-                                                                            <p>Head admin</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h6>Company name 1</h6>
-                                                                    <p>company type</p>
-                                                                </td>
-                                                                <td>
-                                                                    <div>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                                            <p class="text-success">65%</p>
-                                                                            <p>85/162</p>
-                                                                        </div>
-                                                                        <div class="progress progress-md">
-                                                                            <div class="progress-bar bg-warning"
-                                                                                role="progressbar" style="width: 38%"
-                                                                                aria-valuenow="38" aria-valuemin="0"
-                                                                                aria-valuemax="100"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="badge badge-opacity-warning">In
-                                                                        progress</div>
+                                                                <td colspan="6">
+                                                                    <p class="text-center">Maaf data belum tersedia</p>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="form-check form-check-flat mt-0">
-                                                                        <label class="form-check-label">
-                                                                            <input type="checkbox"
-                                                                                class="form-check-input"
-                                                                                aria-checked="false"><i
-                                                                                class="input-helper"></i></label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex">
-                                                                        <img src="images/faces/face4.jpg" alt="">
-                                                                        <div>
-                                                                            <h6>Matthew Bailey</h6>
-                                                                            <p>Head admin</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h6>Company name 1</h6>
-                                                                    <p>company type</p>
-                                                                </td>
-                                                                <td>
-                                                                    <div>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                                            <p class="text-success">65%</p>
-                                                                            <p>85/162</p>
-                                                                        </div>
-                                                                        <div class="progress progress-md">
-                                                                            <div class="progress-bar bg-danger"
-                                                                                role="progressbar" style="width: 15%"
-                                                                                aria-valuenow="15" aria-valuemin="0"
-                                                                                aria-valuemax="100"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="badge badge-opacity-danger">
-                                                                        Pending</div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="form-check form-check-flat mt-0">
-                                                                        <label class="form-check-label">
-                                                                            <input type="checkbox"
-                                                                                class="form-check-input"
-                                                                                aria-checked="false"><i
-                                                                                class="input-helper"></i></label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="d-flex">
-                                                                        <img src="images/faces/face5.jpg" alt="">
-                                                                        <div>
-                                                                            <h6>Katherine Butler</h6>
-                                                                            <p>Head admin</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h6>Company name 1</h6>
-                                                                    <p>company type</p>
-                                                                </td>
-                                                                <td>
-                                                                    <div>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                                            <p class="text-success">65%</p>
-                                                                            <p>85/162</p>
-                                                                        </div>
-                                                                        <div class="progress progress-md">
-                                                                            <div class="progress-bar bg-success"
-                                                                                role="progressbar" style="width: 65%"
-                                                                                aria-valuenow="65" aria-valuemin="0"
-                                                                                aria-valuemax="100"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="badge badge-opacity-success">
-                                                                        Completed</div>
-                                                                </td>
-                                                            </tr>
+                                                            @endforelse
                                                         </tbody>
                                                     </table>
                                                 </div>

@@ -2,6 +2,7 @@
 
 @section('content')
 @include('components.header')
+@include('components.banner')
 <!-- Section-->
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
@@ -27,12 +28,20 @@
                                 <div class="bi-star-fill"></div>
                             </div>
                             <!-- Product price-->
-                            Rp. {{number_format($item->harga_produk, 2, ',', '.')}}
+                            <span class="badge bg-info">{{$item->category->nama_kategori}}</span> <br>
+                            Rp. {{number_format($item->harga_produk, 2, ',', '.')}} <br>
+                            Jumlah: {{$item->qty_produk}}
                         </div>
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Beli Sekarang</a>
+                        <div class="text-center">
+                            @if ($item->qty_produk != 0)
+                            <a class="btn btn-outline-dark mt-auto" href="{{route('belanja', $item->id)}}">Beli
+                                Sekarang</a>
+                            @else
+                            <span class="badge badge-opacity-warning mt-auto">Habis</span>
+                            @endif
                         </div>
                     </div>
                 </div>
