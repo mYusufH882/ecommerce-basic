@@ -22,7 +22,7 @@
 
 <h1 align="center">Installasi Projek Web Ecommerce Basic</h1>
 
-<ul list-style="none">
+<ul list-style-type="none">
     <li>1. Clone projek ini https://github.com/mYusufH882/ecommerce-basic.git (Syaratnya sudah paham GIT) / Alternatif lain download file ZIP nya saja.</li>
     <li>2. Buka Terminal/CMD jalankan perintah <code>composer install / composer update</code>, lalu tekan enter</li>
     <li>3. Aktifkan PHP & MySQL menggunakan web server (Laragon, XAMPP, DevilBox, dll).</li>
