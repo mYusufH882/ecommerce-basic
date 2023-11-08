@@ -9,16 +9,16 @@
         </li>
         <li class="nav-item nav-category">menu</li>
         @can('isAdmin')
-        <li class="nav-item {{Route::is('produk.*') ? 'active' : ''}}">
-            <a class="nav-link" href="/produk">
-                <i class="menu-icon mdi mdi-archive"></i>
-                <span class="menu-title">Produk</span>
-            </a>
-        </li>
         <li class="nav-item {{Route::is('kategori.*') ? 'active' : ''}}">
             <a class="nav-link" href="/kategori">
                 <i class="menu-icon mdi mdi-apps"></i>
                 <span class="menu-title">Kategori</span>
+            </a>
+        </li>
+        <li class="nav-item {{Route::is('produk.*') ? 'active' : ''}}">
+            <a class="nav-link" href="/produk">
+                <i class="menu-icon mdi mdi-archive"></i>
+                <span class="menu-title">Produk</span>
             </a>
         </li>
         @endcan
@@ -26,6 +26,12 @@
             <a class="nav-link" href="/transaksi">
                 <i class="menu-icon mdi mdi-file-document"></i>
                 <span class="menu-title">Transaksi</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/" class="nav-link">
+                <i class="menu-icon mdi mdi-amazon"></i>
+                <span class="menu-title">Katalog</span>
             </a>
         </li>
         <li class="nav-item nav-category">pengaturan</li>

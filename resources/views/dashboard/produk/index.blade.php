@@ -25,6 +25,7 @@
                                     <th style="width: 15px;">No.</th>
                                     <th>Gambar Produk</th>
                                     <th>Nama Produk</th>
+                                    <th>Kategori</th>
                                     <th>Harga & Qty</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -38,6 +39,9 @@
                                             alt="{{$item->nama_produk}}" class="w-50 h-50">
                                     </td>
                                     <td>{{$item->nama_produk}}</td>
+                                    <td>
+                                        <span class="badge bg-info">{{$item->category->nama_kategori}}</span>
+                                    </td>
                                     <td>
                                         <b>Rp.</b> {{number_format($item->harga_produk, '2', ',', '.')}} <br><br>
                                         <b>Qty</b> {{$item->qty_produk}}

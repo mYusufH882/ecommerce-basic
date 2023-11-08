@@ -28,11 +28,22 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$item->invoice}}</td>
                                     <td>
-                                        <b>Rp.</b> {{number_format($item->harga_produk, '2', ',', '.')}} <br><br>
-                                        <b>Qty</b> {{$item->qty_produk}}
+                                        <img class="my-3"
+                                            src="{{asset('gambar_produk/'.$item->product->gambar_produk)}}"
+                                            alt="{{$item->product->nama_produk}}"> <br>
+                                        {{$item->product->nama_produk}}
+                                    </td>
+                                    <td>
+                                        <b>Rp.</b> {{number_format($item->product->harga_produk, '2', ',', '.')}}
+                                        <br><br>
+                                        <b>Qty</b> {{$item->product->qty_produk}}
                                     </td>
                                     <td>{{number_format($item->total_amount, 2, ',', '.')}}</td>
-                                    <td>{{$item->status}}</td>
+                                    <td>
+                                        <span class="badge badge-opacity-warning">
+                                            {{$item->status}}
+                                        </span>
+                                    </td>
 
                                     @can('isAdmin')
                                     <td>

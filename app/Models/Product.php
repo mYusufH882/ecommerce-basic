@@ -20,6 +20,11 @@ class Product extends Model
 
     public function category()
     {
-        $this->belongsTo(Category::class, 'id_category', 'id');
+        return $this->belongsTo(Category::class, 'id_category', 'id');
+    }
+
+    public static function jumlahProduk()
+    {
+        return Product::get()->count();
     }
 }
