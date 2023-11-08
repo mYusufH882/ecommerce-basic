@@ -19,7 +19,11 @@
         <ul class="navbar-nav">
             <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
                 <h1 class="welcome-text">Selamat Datang, <span
-                        class="text-black fw-bold">{{ucfirst(auth()->user()->name)}}</span></h1>
+                        class="text-black fw-bold">{{ucfirst(auth()->user()->name)}}</span>
+                    @if (auth()->user()->role == "admin")
+                    <span class="badge badge-sm badge-opacity-primary">Admin</span>
+                    @endif
+                </h1>
                 <h3 class="welcome-sub-text">Dashboard untuk mengelola data anda. </h3>
             </li>
         </ul>

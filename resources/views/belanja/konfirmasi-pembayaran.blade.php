@@ -30,14 +30,21 @@
                                 {{$trans->product->deskripsi_produk}}
                             </p>
 
+                            <p>Total Bayar : Rp. {{$amount}} x
+                                {{$qty}} = Rp. <b>{{$total}}</b></p>
+
                             @if ($trans->status == "Pending")
                             <div class="alert alert-warning mb-3">
                                 <span>Status pesanan anda masih di Pending, segera konfirmasi Pembayaran !!!</span>
                             </div>
 
-                            @if (Session::has('message'))
+                            @if (Session::has('success'))
+                            <div class="alert alert-success">
+                                <span>{{Session::get('success')}}</span>
+                            </div>
+                            @elseif(Session::has('failed'))
                             <div class="alert alert-danger">
-                                <span>{{Session::get('message')}}</span>
+                                <span>{{Session::get('failed')}}</span>
                             </div>
                             @endif
 
@@ -48,8 +55,7 @@
                                     <div class="input-group">
                                         <span class="input-group-text">Total Pembayaran</span>
                                         <input type="hidden" name="id_produk" value="{{$trans->id_product}}">
-                                        <input type="text" name="total"
-                                            value="Rp. {{number_format($trans->total_amount, 2, ',', '.')}} x {{$trans->total_qty}}"
+                                        <input type="text" name="total" value="Rp. {{$total}}"
                                             aria-label="Total Pembayaran" class="form-control" disabled>
                                         <input type="text" name="bayar" aria-label="Bayar" class="form-control @error('bayar')
                                             is-invalid
@@ -79,4 +85,5 @@
         </div>
     </div>
 </section>
+@include('components.footer')
 @endsection
