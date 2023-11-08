@@ -15,4 +15,9 @@ class LandingPageController extends Controller
 
         return view('landing', compact('produk', 'kategori'));
     }
+
+    public function about()
+    {
+        return view('about');
+    }
 }

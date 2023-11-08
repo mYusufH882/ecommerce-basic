@@ -11,7 +11,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $transaksi = Transaction::where('id_user', auth()->user()->id)->get();
+        $transaksi = new Transaction();
+
+        if (auth()->user()->role == "admin") {
+            $transaksi = $transaksi->all();
+        } else {
+            $transaksi = $transaksi->where('id_user', auth()->user()->id)->get();
+        }
+
         $data = [
             'jkategori' => Category::jumlahKategori(),
             'jproduk' => Product::jumlahProduk(),

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_product');
             $table->string('invoice');
-            $table->float('total_amount');
+            $table->decimal('total_amount', 10, 2);
             $table->string('status');
             $table->timestamps();
         });

@@ -46,7 +46,7 @@
                                                         <h4 class="card-title card-title-dash">Daftar Transaksi
                                                         </h4>
                                                         <p class="card-subtitle card-subtitle-dash">Kamu
-                                                            memiliki daftar transaksi {{$data['jtransaksi']}} baru.</p>
+                                                            memiliki {{$data['jtransaksi']}} daftar transaksi baru.</p>
                                                     </div>
                                                     <div>
                                                         <a href="/transaksi"
@@ -60,10 +60,10 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>No.</th>
-                                                                <th>Invoice</th>
-                                                                <th>Nama Produk</th>
-                                                                <th>Harga & Qty</th>
-                                                                <th>Total Harga</th>
+                                                                <th>Nama Pelanggan & Invoice</th>
+                                                                <th>Nama Produk, Harga & Qty</th>
+                                                                <th></th>
+                                                                <th>Total Harga x Qty</th>
                                                                 <th>Status</th>
                                                             </tr>
                                                         </thead>
@@ -109,18 +109,49 @@
                                                             @forelse ($transaksi as $item)
                                                             <tr>
                                                                 <td>{{$loop->iteration}}</td>
-                                                                <td>{{$item->invoice}}</td>
-                                                                <td>
-                                                                    <b>Rp.</b> {{number_format($item->harga_produk, '2',
-                                                                    ',', '.')}} <br><br>
-                                                                    <b>Qty</b> {{$item->qty_produk}}
+                                                                <td>{{ucfirst($item->user->name)}}<br>{{$item->invoice}}
                                                                 </td>
-                                                                <td>{{number_format($item->total_amount, 2, ',', '.')}}
+                                                                <td>
+                                                                    <img class="mb-2"
+                                                                        src="{{asset('gambar_produk/'.$item->product->gambar_produk)}}"
+                                                                        alt="{{$item->product->nama_produk}}"> <br>
+                                                                    {{$item->product->nama_produk}} <br>
+                                                                    <b>
+                                                                        Rp.
+                                                                        {{number_format($item->product->harga_produk,
+                                                                        '2',
+                                                                        ',', '.')}}
+                                                                    </b> <br>
+                                                                    <b>
+                                                                        Qty {{$item->product->qty_produk}}
+                                                                    </b>
+                                                                </td>
+                                                                <td>
+
+                                                                </td>
+                                                                <td>
+                                                                    <b>
+                                                                        Rp. {{number_format($item->total_amount, 2, ',',
+                                                                        '.')}} x {{$item->total_qty}} = <br> Rp.
+                                                                        {{number_format($item->total_amount *
+                                                                        $item->total_qty, 2, ',',
+                                                                        '.')}}
+                                                                    </b>
                                                                 </td>
                                                                 <td>
                                                                     <span class="badge badge-opacity-warning">
                                                                         {{$item->status}}
                                                                     </span>
+                                                                    <br>
+                                                                    @if ($item->status == "Diproses")
+                                                                    <span class="badge badge-opacity-success mt-2">
+                                                                        Sudah dibayar
+                                                                    </span>
+                                                                    @else
+                                                                    <span class="badge badge-opacity-warning mt-2">
+                                                                        Belum dibayar
+                                                                    </span>
+                                                                    @endif
                                                                 </td>
                                                             </tr>
                                                             @empty

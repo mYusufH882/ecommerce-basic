@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landing_page');
+Route::get('/about', [LandingPageController::class, 'about'])->name('about');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
