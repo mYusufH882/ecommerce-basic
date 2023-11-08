@@ -21,3 +21,17 @@
 <hr>
 
 <h1 align="center">Installasi Projek Web Ecommerce Basic</h1>
+
+<ul>
+    <li>1. Clone projek ini https://github.com/mYusufH882/ecommerce-basic.git (Syaratnya sudah paham GIT) / Download ZIP nya saja.</li>
+    <li>2. Buka Terminal/CMD jalankan perintah <code>composer install / composer update</code>, lalu tekan enter</li>
+    <li>3. Aktifkan PHP & MySQL menggunakan web server (Laragon, XAMPP, DevilBox, dll).</li>
+    <li>4. Buat database baru di phpmyadmin, bebas nama databasenya apa saja atau ecommerce-basic (nama databasenya)</li>
+    <li>5. Duplikasi file .env.example lalu ubah nama filenya menjadi .env</li>
+    <li>6. Didalam file .env sesuaikan dengan nama aplikasi atau database yang sudah dibuat pada nomor 4.</li>
+    <li>7. Buka Terminal/CMD jalankan perintah <code>php artisan key:generate</code></li>
+    <li>8. Jalankan perintah <code>php artisan migrate</code></li>
+    <li>9. Jalankan perintah <code>php artisan db:seeder</code></li>
+    <li>10. Jalankan perintah <code>php artisan serve</code></li>
+    <li>11. Buka browser dan jalankan localhost:8000</li>
+</ul>
