@@ -16,7 +16,7 @@
                         fitur chart barang dan library lainnya yang mendukung sesuai dengan tema web ecommerce ini.
                     </p>
                     <p class="text-success">
-                        Jangan lupa untuk follow github saya ya!!!
+                        Jangan lupa untuk follow github saya ya!!! wkwkwk
                     </p>
                     <a target="_blank" href="https://github.com/mYusufH882/ecommerce-basic"
                         class="btn btn-primary mb-3">Coba
