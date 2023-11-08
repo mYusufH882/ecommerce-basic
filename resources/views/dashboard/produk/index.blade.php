@@ -40,12 +40,9 @@
                                     </td>
                                     <td>{{$item->nama_produk}}</td>
                                     <td>
-                                        <<<<<<< HEAD <span class="badge bg-info">
-                                            {{$item->category->nama_kategori}}</span>
+                                        <span class="badge bg-info">{{$item->category->nama_kategori}}</span>
                                     </td>
                                     <td>
-                                        =======
-                                        >>>>>>> 20b074c (Update CRUD produk & kategori)
                                         <b>Rp.</b> {{number_format($item->harga_produk, '2', ',', '.')}} <br><br>
                                         <b>Qty</b> {{$item->qty_produk}}
                                     </td>
