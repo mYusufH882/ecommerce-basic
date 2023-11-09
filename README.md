@@ -6,21 +6,7 @@
 
 <hr>
 
-<p><b>Jangan lupa follow dulu Akun github saya soalnya banyak proyek menarik yang bakal saya buat. :)</b></p>
-
-<h2>Akun Admin</h2>
-<ul>
-    <li>Email : yusuf@mail.com</li>
-    <li>Password : 12345678</li>
-</ul>
-
-<h2>Akun User</h2>
-<ul>
-    <li>Email : zulaikha@mail.com</li>
-    <li>Password : 12345678</li>
-</ul>
-
-<hr>
+<p><b>Jangan lupa follow dulu Akun github saya soalnya banyak proyek menarik yang bakal saya buat nantinya. :)</b></p>
 
 <h1 align="center">Installasi Projek Web Ecommerce Basic</h1>
 
@@ -40,6 +26,20 @@
 
 <hr>
 
+<h2>Akun Admin</h2>
+<ul>
+    <li>Email : yusuf@mail.com</li>
+    <li>Password : 12345678</li>
+</ul>
+
+<h2>Akun User</h2>
+<ul>
+    <li>Email : zulaikha@mail.com</li>
+    <li>Password : 12345678</li>
+</ul>
+
+<hr>
+
 <h3><b>Noted :</b></h3>
 <p>
     Mohon untuk memperhatikan intruksi yang diberikan dan perhatikan beberapa catatan
@@ -50,6 +50,14 @@
     <li>1. Ubah tipe data pada tabel products & transactions</li>
     <ul>
         <li>Buka file migration products & transactions</li>
-        <li>ganti kode : <code>$table->float('nama_kolom')</code>, jadi $table->double('nama_kolom', 10, 2)</li>
-    </u
+        <li>ganti kode : <code>$table->float('nama_kolom')</code>, jadi <code>$table->double('nama_kolom', 10, 2)</code></li>
+    </ul>
+    <li>2. Tambahan kolom baru pada tabel transactions</li>
+    <ul>
+        <li>Ketikkan perintah : <code>php artisan make:migration add_total_qty_to_transactions_table</code> untuk melakukan alter table</li>
+        <li>Tambahkan kode : <code>$table->integer('total_qty')</code> pada file migration diatas atau bisa dilihat melalui repository ini.</li>
+        <li>Jalankan perintah : <code>php artisan migrate</code> untuk menambahkan kolom baru.</li>
+    </ul>
 </ul>
+
+<p style="color:red;"><b>**Biasakan untuk tidak panik jika error ambil jeda waktu untuk menenangkan diri, lalu kembali untuk memperbaiki. !!!</b></p>
