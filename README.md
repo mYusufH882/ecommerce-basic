@@ -6,6 +6,8 @@
 
 <hr>
 
+<p><b>Jangan lupa follow dulu Akun github saya soalnya banyak proyek menarik yang bakal saya buat. :)</b></p>
+
 <h2>Akun Admin</h2>
 <ul>
     <li>Email : yusuf@mail.com</li>
@@ -34,4 +36,20 @@
     <li>9. Jalankan perintah <code>php artisan db:seeder</code></li>
     <li>10. Jalankan perintah <code>php artisan serve</code></li>
     <li>11. Buka browser dan jalankan localhost:8000</li>
+</ul>
+
+<hr>
+
+<h3><b>Noted :</b></h3>
+<p>
+    Mohon untuk memperhatikan intruksi yang diberikan dan perhatikan beberapa catatan
+    dibawah ini terkait perbaikan pada aplikasi ini.
+</p>
+
+<ul>
+    <li>1. Ubah tipe data pada tabel products & transactions</li>
+    <ul>
+        <li>Buka file migration products & transactions</li>
+        <li>ganti kode : <code>$table->float('nama_kolom')</code>, jadi $table->double('nama_kolom', 10, 2)</li>
+    </u
 </ul>
