@@ -42,7 +42,17 @@
                                     <td>
                                         <span class="badge badge-opacity-warning">
                                             {{$item->status}}
-                                        </span>
+                                        </span> <br>
+                                        @can('isUser')
+                                        @if ($item->status === "Pending")
+                                        <a href="{{route('pembayaran', $item->id)}}"
+                                            class="btn btn-sm btn-success mt-2">
+                                            Bayar Sekarang
+                                        </a>
+                                        @elseif($item->status === "Diproses")
+                                        <span class="badge badge-opacity-success mt-2">Lunas</span>
+                                        @endif
+                                        @endcan
                                     </td>
 
                                     @can('isAdmin')

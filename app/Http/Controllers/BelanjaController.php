@@ -54,7 +54,7 @@ class BelanjaController extends Controller
         $total = $amount * $qty;
         $total = number_format($total, 2, ',', '.');
 
-        return view('belanja.konfirmasi-pembayaran', compact('trans', 'amount', 'qty', 'total'));
+        return view('belanja.konfirmasi-pembayaran', compact('trans', 'amount', 'qty'));
     }
 
     public function konfirmasi(Request $request)
@@ -64,25 +64,27 @@ class BelanjaController extends Controller
         $produk = Product::find($id_produk);
 
         $bayar = $request->input('bayar');
-        $amount = $belanja->total_amount;
         $qty = $belanja->total_qty;
 
         $request->validate([
             'bayar' => 'required'
         ]);
 
-        if ($bayar >= $amount) {
+        $total = $qty * $produk->harga_produk;
+
+        if ($bayar >= $belanja->total_amount) {
             $produk->update([
                 'qty_produk' => $produk->qty_produk - $belanja->total_qty
             ]);
 
             $belanja->update([
+                'total_amount' => $total,
                 'total_qty' => $qty,
                 'status' => 'Diproses'
             ]);
 
             return redirect()->back()->with('success', 'Pembayaran anda berhasil diproses!!');
-        } else {
+        } else if ($bayar <= $belanja->total_amount) {
             return redirect()->route('pembayaran', $belanja->id)->with('failed', 'Uang yang anda bayarkan masih kurang!!!');
         }
     }
