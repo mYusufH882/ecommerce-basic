@@ -131,9 +131,11 @@
                                                                 </td>
                                                                 <td>
                                                                     <b>
-                                                                        Rp. {{number_format($item->total_amount, 2, ',',
+                                                                        Rp.
+                                                                        {{number_format($item->product->harga_produk, 2,
+                                                                        ',',
                                                                         '.')}} x {{$item->total_qty}} = <br> Rp.
-                                                                        {{number_format($item->total_amount *
+                                                                        {{number_format($item->product->harga_produk *
                                                                         $item->total_qty, 2, ',',
                                                                         '.')}}
                                                                     </b>
@@ -152,6 +154,14 @@
                                                                         Belum dibayar
                                                                     </span>
                                                                     @endif
+                                                                    @can('isUser')
+                                                                    @if ($item->status === "Pending")
+                                                                    <a href="{{route('pembayaran', $item->id)}}"
+                                                                        class="btn btn-sm btn-success mt-2">
+                                                                        Bayar Sekarang
+                                                                    </a>
+                                                                    @endif
+                                                                    @endcan
                                                                 </td>
                                                             </tr>
                                                             @empty
